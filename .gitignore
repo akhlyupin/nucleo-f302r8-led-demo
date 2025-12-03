@@ -3,5 +3,6 @@ Build/
 
 Makefile
 *.mk
+*.ld
 
 .DS_Store
