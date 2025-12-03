@@ -1,0 +1,88 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+			"type": "shell",
+            "label": "CMake: Configure Debug",
+            "command": "cmake",
+            "args": [
+                "-G Unix Makefiles",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-Bbuild/debug",
+                "-DCMAKE_TOOLCHAIN_FILE=cmake/STM32F302.cmake"
+            ],
+            "options": {
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+		},
+        {
+			"type": "shell",
+            "label": "CMake: Configure Release",
+            "command": "cmake",
+            "args": [
+                "-G Unix Makefiles",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-Bbuild/release",
+                "-DCMAKE_TOOLCHAIN_FILE=cmake/STM32F302.cmake"
+            ],
+            "options": {
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+		},
+		{
+			"type": "shell",
+            "label": "CMake: Build Debug",
+            "command": "cmake --build ${workspaceFolder}/build/debug",
+            "args": [
+            
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build/debug"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+		},
+		{
+			"type": "shell",
+            "label": "CMake: Build Release",
+            "command": "cmake --build ${workspaceFolder}/build/release",
+            "args": [
+            
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+		},
+		{
+            "type": "shell",
+            "label": "OpenOCD: Flash",
+            "group": "build",
+            "dependsOn": "build",
+            "command": "openocd -f interface/stlink.cfg -f target/stm32f3x.cfg -c \"program ${workspaceFolder}/build/release/nucleo-f302r8-led.elf verify reset exit\"",
+        }
+	]
+}

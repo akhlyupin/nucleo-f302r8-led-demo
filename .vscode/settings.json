@@ -1,0 +1,18 @@
+{
+    "files.autoSave": "afterDelay",
+    "workbench.editor.enablePreview": false,
+    "window.zoomLevel": 2,
+    "explorer.confirmDelete": false,
+    "STM32VSCodeExtension.projectCreator.executablePath": "/Applications/STMicroelectronics/STM32CubeMX.app",
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "clang-format.executable": "clang-format",
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "cstdio": "cpp"
+    }
+}
