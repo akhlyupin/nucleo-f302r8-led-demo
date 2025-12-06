@@ -46,7 +46,7 @@ struct Stripe {
     static constexpr std::size_t BITS_PER_LED = 24;
     static constexpr std::size_t DATA_SIZE = SIZE * BITS_PER_LED + RESET_SIZE;
 
-    std::uint16_t data_[DATA_SIZE]{};
+    std::uint8_t data_[DATA_SIZE]{};
 };
 
 }  // namespace dd::led::ws2812
