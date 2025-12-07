@@ -8,7 +8,7 @@ extern "C" void app_init();
 extern "C" void app_loop();
 extern "C" void app_close();
 
-static constexpr std::size_t STRIPE_SIZE = 6;
+static constexpr std::size_t STRIPE_SIZE = 120;
 dd::led::ws2812::Stripe<STRIPE_SIZE> led_stripe{};
 
 void app_init() {
@@ -34,12 +34,9 @@ void app_loop() {
         tick_ms = HAL_GetTick();
         printf("counter: %lu\n", counter++);
 
-        led_stripe.Set(0, colors[counter % STRIPE_SIZE]);
-        led_stripe.Set(1, colors[(counter + 1) % STRIPE_SIZE]);
-        led_stripe.Set(2, colors[(counter + 2) % STRIPE_SIZE]);
-        led_stripe.Set(3, colors[(counter + 3) % STRIPE_SIZE]);
-        led_stripe.Set(4, colors[(counter + 4) % STRIPE_SIZE]);
-        led_stripe.Set(5, colors[(counter + 5) % STRIPE_SIZE]);
+        for (std::size_t i = 0; i < STRIPE_SIZE; i++) {
+            led_stripe.Set(i, colors[(counter + i) % 6]);
+        }
         led_stripe.Draw();
     }
 }
