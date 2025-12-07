@@ -1,18 +1,30 @@
 #pragma once
 
 #include <cinttypes>
-#include "led/color.h"
-#include "main.h"
 #include <cstdio>
+#include "led/color.h"
+#include "led/stripe.h"
+#include "main.h"
 
 namespace dd::led::ws2812 {
 
 template <std::size_t SIZE>
-struct Stripe {
+struct Stripe : public IStripe {
 
-    Stripe() { memset(data_, 0, sizeof(data_)); }
+    Stripe() {
+        memset(data_, 0, sizeof(data_));
+        Clear();
+    }
 
-    void Set(std::size_t index, Color24 color) {
+    std::size_t Size() const override { return SIZE; }
+
+    void Clear() override {
+        for (std::size_t i = 0; i < SIZE * BITS_PER_LED; i++) {
+            data_[i] = 30;
+        }
+    }
+
+    void Set(std::size_t index, Color24 color) override {
         if (index >= SIZE) {
             return;
         }
@@ -30,7 +42,7 @@ struct Stripe {
         }
     }
 
-    void Draw() {
+    void Draw() override {
         TIM1->CNT = 0;
 
         if (HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t*)data_,
