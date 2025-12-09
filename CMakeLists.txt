@@ -50,6 +50,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 
     # application
     Core/Src/application.cpp
+    Core/Src/demo/demo.cpp
     Core/Src/demo/player.cpp
     Core/Src/led/color.cpp
     Core/Src/led/display.cpp
