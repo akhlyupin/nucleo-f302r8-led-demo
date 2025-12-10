@@ -35,9 +35,16 @@ void Demo::Tick() {
             display_.Clear();
             explosion_.Tick();
             display_.Draw();
+
+            if (explosion_.IsDone()) {
+                SetState(State::LOGO);
+            }
             break;
         }
         case State::LOGO: {
+            display_.Clear();
+            logo_.Tick();
+            display_.Draw();
             break;
         }
         default: {
@@ -78,6 +85,8 @@ void Demo::SetState(State state) {
             break;
         }
         case State::LOGO: {
+            display_.Clear();
+            display_.Draw();
             break;
         }
         default: {
