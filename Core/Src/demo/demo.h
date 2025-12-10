@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cinttypes>
+#include "explosion.h"
 #include "led/display.h"
 #include "player.h"
 
@@ -24,6 +25,7 @@ struct Demo {
 
     Player player_0_{display_};
     Player player_1_{display_};
+    Explosion explosion_{display_, 30};
 
     void SetState(State state);
 };

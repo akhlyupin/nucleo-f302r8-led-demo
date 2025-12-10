@@ -19,6 +19,8 @@ void Demo::Tick() {
             if ((player_0_.HeadPoint().x >= player_1_.HeadPoint().x) &&
                 (player_0_.HeadPoint().y >= player_1_.HeadPoint().y)) {
 
+                explosion_.Reset(player_0_.HeadPoint().x,
+                                 player_0_.HeadPoint().y);
                 SetState(State::EXPLOSION);
                 break;
             }
@@ -30,6 +32,9 @@ void Demo::Tick() {
             break;
         }
         case State::EXPLOSION: {
+            display_.Clear();
+            explosion_.Tick();
+            display_.Draw();
             break;
         }
         case State::LOGO: {
