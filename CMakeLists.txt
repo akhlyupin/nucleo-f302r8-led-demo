@@ -51,6 +51,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # application
     Core/Src/application.cpp
     Core/Src/led/color.cpp
+    Core/Src/led/display.cpp
+    Core/Src/led/stripe.cpp
     Core/Src/led/ws2812.cpp
 )
 
