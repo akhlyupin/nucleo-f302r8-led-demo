@@ -7,7 +7,7 @@
         {
             "name": "Cortex Debug",
             "cwd": "${workspaceFolder}",
-            "executable": "build/debug/nucleo-f302r8-led.elf",
+            "executable": "build/debug/demo-app/ws2812-demo-app.elf",
             "request": "launch",
             "type": "cortex-debug",
             "runToEntryPoint": "main",
