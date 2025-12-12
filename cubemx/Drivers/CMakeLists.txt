@@ -16,7 +16,7 @@ target_include_directories(stm32-drivers INTERFACE
     STM32F3xx_HAL_Driver/Inc
     STM32F3xx_HAL_Driver/Inc/Legacy
 
-    ${CMAKE_SOURCE_DIR}/Core/Inc
+    ${CMAKE_SOURCE_DIR}/cubemx/Core/Inc
 )
 
 target_sources(stm32-drivers INTERFACE
