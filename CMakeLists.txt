@@ -10,3 +10,4 @@ project(nucleo-f302r8-research)
 enable_language(C CXX ASM)
 
 add_subdirectory(cubemx)
+add_subdirectory(demo-app)

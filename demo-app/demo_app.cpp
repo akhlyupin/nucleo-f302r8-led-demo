@@ -16,7 +16,7 @@ dd::led::Display<12, 10> display{led_stripe};
 Demo demo{display};
 
 void app_init() {
-    printf("\nHello WS2812 project!\n");
+    printf("\nHello WS2812 Demo project!\n");
 
     HAL_Delay(200);
 }
