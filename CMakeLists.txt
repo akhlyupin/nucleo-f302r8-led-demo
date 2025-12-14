@@ -11,3 +11,4 @@ enable_language(C CXX ASM)
 
 add_subdirectory(cubemx)
 add_subdirectory(demo-app)
+add_subdirectory(snake-app)
