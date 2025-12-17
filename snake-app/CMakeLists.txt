@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.22)
 
 add_executable(ws2812-snake-app
     snake_app.cpp
-
+    
+    game-engine/snake.cpp
     led/color.cpp
     led/display.cpp
     led/stripe.cpp
